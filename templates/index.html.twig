@@ -20,9 +20,12 @@
             }
 
             .container {
-                width: 80%;
+                   
+                /* top: 10px;       
+                left: 577px;       */ 
+                
                 margin: auto;
-                padding: 20px;
+                    
             }
 
             .profile {
@@ -72,21 +75,18 @@
                 box-shadow: 0 4px 10px rgba(0, 123, 255, 0.3);
             }  */
 
-            .certifications-btn { 
-                position: absolute;  
-                top: 120px;       
-                left: 577px;    
+            .certifications-btn {        
                 padding: 6px 10px; 
-                background: linear-gradient(135deg, #007BFF, #0056b3); 
+                background: blue;   
                 color: white;  
                 text-decoration: none;         
                 border-radius: 6px;    
-                font-weight: bold;       
-                font-size: 14px;       
+                font-weight: bold;        
+                font-size: 14px;            
                 transition: 0.3s;   
             
             }         
-        
+         
             .contact {       
                 position: absolute;   
                 top: 1300px;         
@@ -116,14 +116,15 @@
 
             .partners {
                 margin-top: 40px;
+                margin-bottom: -5000px;  
                 text-align: center;
-            }
-
-        .partners-logos img {
+            } 
+    
+        .partners-logos img {        
             max-height: 60px;
             object-fit: contain;
-            transition: 0.3s;
-        }
+            transition: 0.3s;   
+        } 
 
         .partners-logos img:hover {     
             transform: scale(1.05);
@@ -149,15 +150,31 @@
                 background-color: black;
                 color: white;
         }
-
+     
    </style>
-      
- 
-<body>
-
+        
 <header>
     <h1>{{ name }}</h1>
     <p>{{ title }}</p>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-0">    
+            {#         
+               I put nothing here because I use this div to create an 
+               empty space on the left of the button "List of my certifications, awards and honors 🏆" 
+               to make it more centered on the page. It's a type of smartness!      
+            #}                 
+         
+            </div> 
+            <div class="col-12">
+                 <a href="{{ path('certifications_route') }}" class="certifications-btn">
+                    List of my certifications, awards and honors 🏆  
+                 </a>      
+            </div>
+        </div>
+    </div>
+             
 </header>
  
 <div class="container">
@@ -208,46 +225,33 @@
         </p>   
     </div>  
 
-    <div> 
-    <a href="{{ path('certifications_route') }}" class="certifications-btn">
-        List of my certifications, awards and honors 🏆  
-    </a>  
-
-    </div>         
-
-</div>   
+</div>     
 
 <div class="partners">
     <h2>Previous partners 👥🤝🏻</h2>
-    {# <img id="partnerLogo" src="/images/partners/logo-for-collaborations.jpg" alt="Partner logo"> #}
-      
-    {# <div class="partners-logos">  
-        <img src="/images/partners/credit-agricole.jpg" alt="Crédit Agricole">
-        <img src="/images/partners/actimage.jpg" alt="Actimage Consulting">
-        <img src="/images/partners/xlim.jpg" alt="XLIM Laboratory">
-    </div> #} 
-   
 
      <div class="logo-rotator">
-        {# The image "credit-agricole.jpg" is the first image of the loop if images. #}
+        {# The image "credit-agricole.jpg" is the first image of the loop of images. #}
         <img id="partnerLogo" src="/images/partners/credit-agricole.jpg" alt="Partner logo">
-    </div>   
-</div>          
-          
-<footer> 
-    <p>© {{ "now"|date("Y") }} {{ name }}</p>
-    <div class="contact">
-        <div color="black">  
-            <h2>Contact</h2>  
-            <h3>📞 +33 7 59 26 68 37</h3>      
-            <p>📧     
-                <a href="mailto:youremail@example.com">
-                    santiago.kamga@gmail.com
-                </a>
-            </p>
-        </div>     
     </div>     
-     
+</div>          
+              
+<footer>     
+    <div class="contact">
+        <div color="black"> 
+            <h4>© {{ "now"|date("Y") }} {{ name }}</h4>  
+            <div>
+                <h6>Contact</h6>     
+                <h6>📞 +33 7 59 26 68 37</h6>       
+                <p>📧          
+                    <a href="mailto:youremail@example.com">
+                        santiago.kamga@gmail.com
+                    </a>   
+                </p>
+            </div>      
+        </div>     
+    </div>         
+
 </footer>
       
 <script>
