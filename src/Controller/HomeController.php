@@ -40,10 +40,10 @@ final class HomeController extends AbstractController
     #[Route('/certifications', name: 'certifications_route')]
     public function ListOfCertifications(): Response
     {
-        $file = $this->getParameter('kernel.project_dir') . '/public/certificates/awards.pdf';
+        $file = $this->getParameter('kernel.project_dir') . '/public/certificates/awards_updated.pdf';
 
-        return $this->file($file, 'awards.pdf', ResponseHeaderBag::DISPOSITION_INLINE);
+        return $this->file($file, 'awards_updated.pdf', ResponseHeaderBag::DISPOSITION_INLINE);
     }
-
+  
            
 }
