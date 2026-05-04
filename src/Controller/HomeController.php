@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\ResponseHeaderBag;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
@@ -29,10 +30,20 @@ final class HomeController extends AbstractController
         ]);  
     }
 
+    // #[Route('/certifications', name: 'certifications_route')]
+    // public function ListOfCertifications(): Response   
+    // { 
+    //     return $this->render('certifications/certification.html.twig');
+    // } 
+
+  
     #[Route('/certifications', name: 'certifications_route')]
-    public function ListOfCertifications(): Response   
-    { 
-        return $this->render('certifications/certification.html.twig');
-    } 
-     
+    public function ListOfCertifications(): Response
+    {
+        $file = $this->getParameter('kernel.project_dir') . '/public/certificates/certificate.pdf';
+
+        return $this->file($file, 'certificate.pdf', ResponseHeaderBag::DISPOSITION_INLINE);
+    }
+
+           
 }
