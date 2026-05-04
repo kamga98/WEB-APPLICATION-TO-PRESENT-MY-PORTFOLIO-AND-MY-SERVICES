@@ -34,15 +34,15 @@ final class HomeController extends AbstractController
     // public function ListOfCertifications(): Response   
     // { 
     //     return $this->render('certifications/certification.html.twig');
-    // } 
+    // }      
 
   
     #[Route('/certifications', name: 'certifications_route')]
     public function ListOfCertifications(): Response
     {
-        $file = $this->getParameter('kernel.project_dir') . '/public/certificates/certificate.pdf';
+        $file = $this->getParameter('kernel.project_dir') . '/public/certificates/awards.pdf';
 
-        return $this->file($file, 'certificate.pdf', ResponseHeaderBag::DISPOSITION_INLINE);
+        return $this->file($file, 'awards.pdf', ResponseHeaderBag::DISPOSITION_INLINE);
     }
 
            
