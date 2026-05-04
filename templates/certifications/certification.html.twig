@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Certification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f5f5;
+            text-align: center;
+        }
+
+        header {
+            background: #222;
+            color: white;
+            padding: 20px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        iframe {
+            width: 90%;
+            height: 80vh;
+            border: none;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-radius: 10px;
+        }
+
+        .download {
+            margin-top: 15px;
+        }
+
+        .download a {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .download a:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>My Certification</h1>
+</header>
+
+<div class="container">
+    <!-- Display PDF -->
+    <iframe src="certificate.pdf"></iframe>
+
+    <!-- Download button -->
+    <div class="download">
+        <a href="certificate.pdf" download>Download PDF</a>
+    </div>
+</div>
+ 
+</body>
+</html>
