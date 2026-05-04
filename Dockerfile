@@ -20,6 +20,10 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 COPY . /var/www/html
 WORKDIR /var/www/html
 
+# Code to fix the error below 
+# Error : "sh: 1: symfony-cmd: not found" with exit code 127.
+ENV COMPOSER_ALLOW_SUPERUSER=1
+
 # Install PHP dependencies 
 RUN composer install  
 
@@ -29,4 +33,4 @@ COPY nginx.conf /etc/nginx/nginx.conf
  
 EXPOSE 8080  
   
-CMD php-fpm -D && nginx -g "daemon off;" 
+CMD php-fpm -D && nginx -g "daemon off;"    
