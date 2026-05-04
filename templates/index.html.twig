@@ -104,27 +104,28 @@
             text-align: center;
         }
 
-    .partners-logos {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 40px;
-        margin-top: 20px;
-        flex-wrap: wrap;
-    }
-
     .partners-logos img {
-        max-height: 60px;   
+        max-height: 60px;
         object-fit: contain;
-        filter: grayscale(100%);
         transition: 0.3s;
     }
 
-    .partners-logos img:hover {
-        filter: grayscale(0%);
+    .partners-logos img:hover {     
         transform: scale(1.05);
     }
+     
+    .logo-rotator {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+    }
 
+    .logo-rotator img {
+        height: 100px;
+        object-fit: contain;
+        transition: opacity 0.5s ease-in-out;
+    }   
 
     footer {
             margin-top: 40px;
@@ -133,6 +134,7 @@
             background: #222;
             color: white;
     }
+
     </style>
 </head>
 
@@ -201,18 +203,62 @@
 </div>   
 
 <div class="partners">
-    <h2>Former Partners</h2>
+    <h2>Previous partners</h2>
 
-    <div class="partners-logos">
-        <img src="/images/partners/credit-agricole.png" alt="Crédit Agricole">
-        <img src="/images/partners/actimage.png" alt="Actimage Consulting">
-        <img src="/images/partners/xlim.png" alt="XLIM Laboratory">
+    {# <div class="partners-logos">
+        <img src="/images/partners/credit-agricole.jpg" alt="Crédit Agricole">
+        <img src="/images/partners/actimage.jpg" alt="Actimage Consulting">
+        <img src="/images/partners/xlim.jpg" alt="XLIM Laboratory">
+    </div> #}
+   
+     <div class="logo-rotator">
+        <img id="partnerLogo" src="/images/partners/credit-agricole.jpg" alt="Partner logo">
     </div>
-</div>    
-    
+</div>       
+          
 <footer>
     <p>© {{ "now"|date("Y") }} {{ name }}</p>
 </footer>
+    
+<script>
+    // List of partner logo image paths
+    // These images will be displayed one after another in a loop
+    const logos = [
+        "/images/partners/credit-agricole.jpg",
+        "/images/partners/actimage.jpg",
+        "/images/partners/xlim.jpg"
+    ];
+
+    // Current index of the logo being displayed
+    let index = 0;
+
+    // Get the <img> element from the DOM where logos will be displayed
+    const img = document.getElementById("partnerLogo");
+
+    // Execute the function every 1 second (1000ms)
+    setInterval(() => {  
+
+        // Move to the next logo in the array
+        // The modulo (%) ensures the index loops back to 0 when reaching the end
+        index = (index + 1) % logos.length;
+
+        // Start fade-out effect by reducing opacity
+        img.style.opacity = 0;
+
+        // Wait 300 milliseconds before changing the image (to allow fade-out effect)
+        setTimeout(() => {
+
+            // Change the image source to the next logo
+            img.src = logos[index];
+
+            // Fade the image back in
+            img.style.opacity = 1;
+
+        }, 300);
+
+    }, 1000); // Repeat this process every 1 second
+</script>
+
 
 </body>
 </html>
