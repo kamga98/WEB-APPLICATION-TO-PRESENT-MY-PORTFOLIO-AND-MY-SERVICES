@@ -7,7 +7,7 @@ RUN apt-get update && apt-get install -y \
     unzip \
     libpng-dev \
     libonig-dev \
-    libxml2-dev
+    libxml2-dev  
 
 RUN docker-php-ext-install mysqli pdo pdo_mysql mbstring 
   
