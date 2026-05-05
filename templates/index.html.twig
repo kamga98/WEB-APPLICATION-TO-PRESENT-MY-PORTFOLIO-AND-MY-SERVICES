@@ -21,9 +21,8 @@
 
             .container {
                    
-                /* top: 10px;       
-                left: 577px;       */ 
-                
+                /* top: 10px;          
+                left: 577px;       */        
                 margin: auto;
                     
             }
@@ -88,8 +87,8 @@
             
             }         
          
-            .contact {       
-                position: absolute;   
+            .contact {          
+                     
                 top: 1300px;         
                 left: 0px;        
                 padding: 6px 10px;
@@ -115,9 +114,9 @@
                 box-shadow: 0 3px 8px rgba(0, 123, 255, 0.3);
             }
 
-            .partners {
+            .partners {   
                 margin-top: 40px;
-                margin-bottom: -5000px;  
+                margin-bottom: 20px;  
                 text-align: center;
             } 
     
@@ -144,15 +143,16 @@
             transition: opacity 0.5s ease-in-out;
         }   
             
-        footer {
-                margin-top: 40px;
+        footer { 
+                position: static;   
+                margin-top: 40px; 
                 padding: 20px;
                 text-align: center;
                 background-color: black;
                 color: white;
         }
      
-   </style>
+   </style>    
         
 <header>
     <h1>{{ name }}</h1>
@@ -231,12 +231,12 @@
 <div class="partners">
     <h2>Previous partners 👥🤝🏻</h2>
 
-     <div class="logo-rotator">
+    <div class="logo-rotator">
         {# The image "credit-agricole.jpg" is the first image of the loop of images. #}
         <img id="partnerLogo" src="/images/partners/credit-agricole.jpg" alt="Partner logo">
     </div>     
 </div>          
-              
+                
 <footer>     
     <div class="contact">
         <div color="black"> 
@@ -256,6 +256,7 @@
 </footer>
       
 <script>
+   
     // List of partner logo image paths
     // These images will be displayed one after another in a loop
     const logos = [
